@@ -1,13 +1,39 @@
+
+
+
 def heapsort(arr):
+################################
+#######Solution Lecture#########
+################################
+# init our heap
   heap = Heap()
+  #sorted = []
+  sorted = [0] * len(arr)
+
+  for el in arr:
+    heap.insert(el)
+
+  #while heap.get_size() > 0:
+    #sorted.append(heap.delete()) heavy run time complexity
+  for i in range(len(arr)):
+    sorted[len(arr) - i - 1] = heap.delete() #much faster
+  #sorted.reverse()
+  return sorted
+ 
+ 
+ ##############################
+ #########sprint code##########
+ ##############################
+""" heap = Heap()
   heap_sorted = []
   for i in arr:
     heap.insert(i)
   
   while heap.size > 0:
     heap_sorted.insert(0, heap.delete())
-    
+
   return heap_sorted
+"""
 
 class Heap:
   def __init__(self):
