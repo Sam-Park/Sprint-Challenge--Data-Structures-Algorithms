@@ -13,13 +13,16 @@ class BinarySearchTree:
     return  
 
   def breadth_first_for_each(self, cb):
-    left_list = [self.left]
-    right_list = [self.right]
-
+    new_list = [self.left, self.right]
     cb(self.value)
+    while len(new_list) > 0:
+      cb(new_list[0].value)
+      if new_list[0].left:
+        new_list.append(new_list[0].left)
+      if new_list[0].right:
+        new_list.append(new_list[0].right)
 
-    while len(left_list) and len(right_list) > 0
-      cb()
+      new_list.pop(0)
 
 
 
